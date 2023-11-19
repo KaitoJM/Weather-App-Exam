@@ -17,7 +17,7 @@ class OpenWeatherController extends Controller
                 'lat' => $request->latitude,
                 'lon' => $request->longitude,
                 'appid' => config('app.openweather_key')
-            ])->get('api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={appid}');
+            ])->get('api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&units=metric&appid={appid}');
 
         return $response;
     }
@@ -29,7 +29,7 @@ class OpenWeatherController extends Controller
                 'lat' => $request->latitude,
                 'lon' => $request->longitude,
                 'appid' => config('app.openweather_key')
-            ])->get('https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={appid}');
+            ])->get('https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units=metric&appid={appid}');
 
         return $response;
     }
