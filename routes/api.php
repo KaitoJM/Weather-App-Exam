@@ -26,3 +26,4 @@ Route::post('get-geo-coding', [OpenWeatherController::class, 'geoCoding']);
 
 Route::post('geo-coding', [GeoapifyController::class, 'geoCoding']);
 Route::post('search-address', [GeoapifyController::class, 'autoCompleteAddress']);
+Route::post('get-address-by-coordinates', [GeoapifyController::class, 'getAddressByCoordinates']);
