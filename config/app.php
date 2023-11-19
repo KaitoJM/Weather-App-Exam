@@ -211,5 +211,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
-
+    
+    'openweather_key' => 'f99dc80c9a38c7d6017490f95df53b9d',
+    'geoapify_key' => '2c4f3d1f890747bb86857b0f00b23a28',
 ];

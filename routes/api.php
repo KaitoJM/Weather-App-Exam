@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OpenWeatherController;
+use App\Http\Controllers\GeoapifyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('get-forcast', [OpenWeatherController::class, 'getFiveDayThreeHourForcast']);
 Route::post('get-weather', [OpenWeatherController::class, 'currentWeather']);
 Route::post('get-geo-coding', [OpenWeatherController::class, 'geoCoding']);
+
+Route::post('geo-coding', [GeoapifyController::class, 'geoCoding']);
+Route::post('search-address', [GeoapifyController::class, 'autoCompleteAddress']);
