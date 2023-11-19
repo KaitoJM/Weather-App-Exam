@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('get-forcast', [OpenWeatherController::class, 'getFiveDayThreeHourForcast']);
+Route::post('get-forecast', [OpenWeatherController::class, 'getFiveDayThreeHourForecast']);
 Route::post('get-weather', [OpenWeatherController::class, 'currentWeather']);
 Route::post('get-geo-coding', [OpenWeatherController::class, 'geoCoding']);
 

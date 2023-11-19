@@ -10,7 +10,7 @@ use App\Http\Requests\GeoCodingRequest;
 
 class OpenWeatherController extends Controller
 {
-    public function getFiveDayThreeHourForcast(FiveDayThreeHourRequest $request) {
+    public function getFiveDayThreeHourForecast(FiveDayThreeHourRequest $request) {
         # https://openweathermap.org/forecast5
 
         $response = Http::withUrlParameters([
