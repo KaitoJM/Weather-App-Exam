@@ -42,6 +42,31 @@ class GeoapifyController extends Controller
         ])->get('https://api.geoapify.com/v1/geocode/reverse?lat={lat}&lon={lon}&format=json&apiKey={api_key}');
 
         return $response;
+    }
 
+    public function defaultCities() {
+        $cities = [
+            ['city' => 'Tokyo','places' => []],
+            ['city' => 'Yokohama','places' => []],
+            ['city' => 'Kyoto','places' => []],
+            ['city' => 'Osaka','places' => []],
+            ['city' => 'Sapporo','places' => []],
+            ['city' => 'Nagoya','places' => []]
+        ];
+
+        foreach($cities as $city_key => $city) {
+            $response = Http::withUrlParameters([
+                'search' => $city['city'],
+                'type' => 'city',
+                'filter' => 'countrycode:jp',
+                'api_key' => config('app.geoapify_key')
+            ])->get('https://api.geoapify.com/v1/geocode/search?text={search}&format=json&apiKey={api_key}');
+    
+            if (isset($response['results'])) {
+                $cities[$city_key]['places'] = $response['results'];
+            }
+        }
+
+        return $cities;
     }
 }
